@@ -27,14 +27,18 @@ public class Hand : MonoBehaviour
     [SerializeField] private Vector3 rotationOffset;
     private Transform _followTarget;
     private Rigidbody _body;
+    //private Collider[] cols;
 
     private void Start()
     {
         // Animation
         //_animator = GetComponent<Animator>();
         //_mesh = GetComponentInChildren<SkinnedMeshRenderer>();
-        
-        
+
+        //cols = GetComponentsInChildren<CapsuleCollider>();
+
+        //Debug.Log(cols);
+
         // Physics Movement
         _followTarget = followObject.transform;
         _body = GetComponent<Rigidbody>();
@@ -54,6 +58,16 @@ public class Hand : MonoBehaviour
         //AnimateHand();
 
         PhysicsMove();
+        /*foreach (Collider col in cols)
+        {
+            //Debug.Log(col.name);
+            if (!col.isTrigger)
+            {
+                //Debug.Log("hand collider set");
+                col.enabled = false;
+                //col.enabled = true;
+            }
+        }*/
     }
 
     private void PhysicsMove()
