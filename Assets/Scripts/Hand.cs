@@ -33,7 +33,7 @@ public class Hand : MonoBehaviour
         // Animation
         //_animator = GetComponent<Animator>();
         //_mesh = GetComponentInChildren<SkinnedMeshRenderer>();
-        Debug.Log(_followTarget);
+        
         
         // Physics Movement
         _followTarget = followObject.transform;
@@ -45,6 +45,8 @@ public class Hand : MonoBehaviour
         // Teleport hands
         _body.position = _followTarget.position;
         _body.rotation = _followTarget.rotation;
+
+        //Debug.Log(_followTarget);
     }
 
     private void Update()
