@@ -57,7 +57,7 @@ public class Hand : MonoBehaviour
     {
         //AnimateHand();
 
-        PhysicsMove();
+        //PhysicsMove();
         /*foreach (Collider col in cols)
         {
             //Debug.Log(col.name);

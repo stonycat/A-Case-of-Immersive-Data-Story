@@ -15,8 +15,8 @@ public class ChangeCamera : MonoBehaviour
     private bool up;
     public GameObject wall;
 
-    public GameObject leftHand;
-    public GameObject rightHand;
+    //public GameObject leftHand;
+    //public GameObject rightHand;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,10 +38,10 @@ public class ChangeCamera : MonoBehaviour
             transform.rotation = new Quaternion(0, 90, 0, 0);
             //rig.GetComponent<>
 
-            leftHand.transform.position += new Vector3(0, -5, -14);
-            rightHand.transform.position += new Vector3(0, -5, -14);
-            leftHand.transform.rotation = new Quaternion(0, 90, 0, 0);
-            rightHand.transform.rotation = new Quaternion(0, 90, 0, 0);
+            //    leftHand.transform.position += new Vector3(0, -5, -14);
+              //  rightHand.transform.position += new Vector3(0, -5, -14);
+                //leftHand.transform.rotation = new Quaternion(0, 90, 0, 0);
+                //rightHand.transform.rotation = new Quaternion(0, 90, 0, 0);
 
 
             up = false;
@@ -53,10 +53,10 @@ public class ChangeCamera : MonoBehaviour
             transform.rotation = new Quaternion(30, 145, -30, 0);
             //transform.Rotate(new Vector3(30,55,0));
 
-            leftHand.transform.position += new Vector3(0, 5, 14);
-            rightHand.transform.position += new Vector3(0, 5, 14);
-            leftHand.transform.rotation = new Quaternion(30, 145, -30, 0);
-            rightHand.transform.rotation = new Quaternion(30, 145, -30, 0);
+    //        leftHand.transform.position += new Vector3(0, 5, 14);
+      //      rightHand.transform.position += new Vector3(0, 5, 14);
+        //    leftHand.transform.rotation = new Quaternion(30, 145, -30, 0);
+          //  rightHand.transform.rotation = new Quaternion(30, 145, -30, 0);
 
             up = true;
             wall.SetActive(false);

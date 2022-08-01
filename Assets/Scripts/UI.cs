@@ -10,6 +10,11 @@ public class UI : MonoBehaviour
     private Canvas _canv;
     private InputAction _menu;
 
+    public GameObject fanColor;
+    public GameObject winClose;
+    public GameObject winOpen;
+
+
     void Start()
     {
         _canv = GetComponent<Canvas>();
@@ -24,5 +29,12 @@ public class UI : MonoBehaviour
     public void ToggleMenu(InputAction.CallbackContext context)  //X°´¼ü
     {
         _canv.enabled = !_canv.enabled;
+
+        if(!_canv.enabled)
+        {
+            fanColor.SetActive(false);
+            winClose.SetActive(false);
+            winOpen.SetActive(false);
+        }
     }
 }
