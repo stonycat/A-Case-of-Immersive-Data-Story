@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class AcrossClassParameterManager : MonoBehaviour
@@ -8,7 +9,6 @@ public class AcrossClassParameterManager : MonoBehaviour
     public static AcrossClassParameterManager Instance { get { return m_instance; } }
 
     public UIState CurrentUIState;
-
 
 
     private void Awake()
@@ -25,6 +25,6 @@ public class AcrossClassParameterManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CurrentUIState = new UIState() { visualizationType = "trajectory", windowMode="background", heatmapLayer="2", heatmapPage="all"};
+        CurrentUIState = new UIState() { windowMode = "background", visualizationType = "trajectory", heatmapLayer="2", heatmapPage="all"};
     }
 }

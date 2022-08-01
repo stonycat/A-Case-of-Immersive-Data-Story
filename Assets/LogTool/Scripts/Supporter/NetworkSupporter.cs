@@ -145,10 +145,11 @@ public class NetworkSupporter : MonoBehaviour
 
     private void HandleNetworkUploadSuccess()
     {
-        GameObject tmpObj = GameObject.Find("DebugInfoForUser");
-        TMP_Text infoForUser = tmpObj.GetComponent<TMPro.TextMeshProUGUI>();
-        infoForUser.SetText("");
-        infoForUser.ForceMeshUpdate(true);
+        //GameObject tmpObj = GameObject.Find("DebugInfoForUser");
+        //TMP_Text infoForUser = tmpObj.GetComponent<TMPro.TextMeshProUGUI>();
+        //infoForUser.SetText("");
+        //infoForUser.ForceMeshUpdate(true);
+        Debug.Log("Error in uploading the logs to the server!");
     }
 
 }

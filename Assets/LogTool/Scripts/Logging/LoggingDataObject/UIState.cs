@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class UIState
 {
-    public string visualizationType;
     public string windowMode;
+    public string visualizationType;
     public string heatmapPage;
     public string heatmapLayer;
 }

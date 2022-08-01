@@ -57,27 +57,7 @@ public class CameraEventLogger : MonoBehaviour
 
     void Start()
     {
-       
-
-        //m_arCamera = GameObject.FindGameObjectWithTag(cameraTag).GetComponent<Camera>();
-
-        //if (!m_arCamera)
-        //{
-        //    Debug.LogError("The camera object is not found.");
-        //}
-
-        //logCounter = 0;
-
-
-        //Vector3 nowCameraPostn = m_arCamera.transform.position;
-        //Quaternion nowCameraRottn = m_arCamera.transform.rotation;
-
-        //Debug.Log("Camera Position: " + logCounter + nowCameraPostn.ToString()); //shall be (0,0,0)
-        //Debug.Log("Camera Rotation: " + logCounter + nowCameraRottn.ToString());
-
-        //logCounter += 1;
-        //m_prevCameraPostn = nowCameraPostn;
-        //m_prevCameraRottn = nowCameraRottn;
+      
 
     }
 
@@ -108,11 +88,11 @@ public class CameraEventLogger : MonoBehaviour
             isBigSpeed = "1";
         }
 
-        //Check if rotation > 40 degree/s
+        //Check if rotation > 20 degree/s
         float angularVelocity = Quaternion.Angle(nowCameraRottn, m_prevCameraRottn) / deltaTimeTemp;
 
         
-        if (speed < 0.5 && angularVelocity > 40)
+        if (speed < 0.5 && angularVelocity > 20)
         {
             isBigSpeed = "0";
             isBigAngularV = "1";
@@ -136,12 +116,6 @@ public class CameraEventLogger : MonoBehaviour
         string isExceedSpeedThreshold = isBigSpeed;
         string isExceedAngularVThreshold = isBigAngularV;
         string texture_string = "";
-        if ((logCounter == 1) || (logCounter % logMod == 0))
-        {
-            var texture = ScreenCapture.CaptureScreenshotAsTexture();
-            texture_string = Convert.ToBase64String(texture.EncodeToJPG(20));
-            UnityEngine.Object.Destroy(texture);
-        }
 
         CameraEventDataObject cameraDataObj = new CameraEventDataObject(m_loggingManager.StudyManager)
         {
@@ -157,38 +131,3 @@ public class CameraEventLogger : MonoBehaviour
         m_loggingManager.OnCameraEventTriggered(cameraDataObj);
     }
 }
-
-
-//public class CameraEventArgs
-//{
-//    public string EventStartTime { get; set; }
-
-//    public string EventName { get; set; }
-
-//    public string CameraPosition { get; set; }
-
-//    public string CameraRotation { get; set; }
-
-//    public string IsExceedSpeedThreshold { get; set; }
-
-//    public string IsExceedAngularVThreshold { get; set; }
-
-//    public string CapturedSreenshot { get; set; }
-
-//    public CameraEventArgs(string a_startTime,
-//        string a_eventName,
-//        string a_cameraPosition,
-//        string a_cameraRotation,
-//        string a_isExceedSpeedThreshold,
-//        string a_isExceedAngularVThreshold,
-//        string a_capturedScreenshot)
-//    {
-//        EventStartTime = a_startTime;
-//        EventName = a_eventName;
-//        CameraPosition = a_cameraPosition;
-//        CameraRotation = a_cameraRotation;
-//        IsExceedSpeedThreshold = a_isExceedSpeedThreshold;
-//        IsExceedAngularVThreshold = a_isExceedAngularVThreshold;
-//        CapturedSreenshot = a_capturedScreenshot;
-//    }
-//}

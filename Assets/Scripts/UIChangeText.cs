@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class UIChangeText : MonoBehaviour
 {
@@ -94,6 +95,14 @@ public class UIChangeText : MonoBehaviour
     private string sp3 = "With the window open, the concentration remains densest near the infected student, but the contaminants are diluted in the rest of the room.";
     private string sp4 = " With an air cleaner and a fan, the overall concentration levels are at their lowest. The contaminants are concentrated at the front of the room where the fan is blowing, and diluted everywhere else. You can feel the difference by walking around or checking the indicator interface.";
 
+    //logging
+    private int logCounter = 0;
+    private Camera mainCamera;
+
+    private void OnEnable()
+    {
+        mainCamera = Camera.main;
+    }
 
     private void Start()
     {
@@ -376,8 +385,21 @@ public class UIChangeText : MonoBehaviour
             h23.SetActive(true);
             h33.SetActive(true);
         }
+        //logging
+        logCounter = logCounter + 1;
+        string startTimestamp = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+        string endTimestamp = "";
+        string eventName = "MenuClick";
+        string actionDetail = "heatmap";
+        string cameraPostn = (mainCamera.transform.position - CameraEventLogger.startCameraPostn).ToString();
+        string cameraRottn = mainCamera.transform.rotation.ToString();
+        ManipulationEventArgs args = new ManipulationEventArgs(logCounter.ToString(), eventName, startTimestamp, endTimestamp, actionDetail, cameraPostn, cameraRottn);
+        LoggingManager.Instance.InvokeManipulationEvent(args);
 
+        //update UI State
+        LoggingManager.Instance.AcrossClassParameterManager.CurrentUIState.visualizationType = "heatmap";
     }
+
     public void Particle()
     {
 
@@ -446,6 +468,20 @@ public class UIChangeText : MonoBehaviour
             p3.SetActive(false);
             p2.SetActive(false);
         }
+
+        //logging
+        logCounter = logCounter + 1;
+        string startTimestamp = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+        string endTimestamp = "";
+        string eventName = "MenuClick";
+        string actionDetail = "particle";
+        string cameraPostn = (mainCamera.transform.position - CameraEventLogger.startCameraPostn).ToString();
+        string cameraRottn = mainCamera.transform.rotation.ToString();
+        ManipulationEventArgs args = new ManipulationEventArgs(logCounter.ToString(), eventName, startTimestamp, endTimestamp, actionDetail, cameraPostn, cameraRottn);
+        LoggingManager.Instance.InvokeManipulationEvent(args);
+
+        //update UI State
+        LoggingManager.Instance.AcrossClassParameterManager.CurrentUIState.visualizationType = "particle";
     }
     public void Ray()
     {
@@ -516,7 +552,23 @@ public class UIChangeText : MonoBehaviour
             ray2.SetActive(false);
             ray3.SetActive(true);
         }
+
+        //logging
+        logCounter = logCounter + 1;
+        string startTimestamp = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+        string endTimestamp = "";
+        string eventName = "MenuClick";
+        string actionDetail = " trajectory";
+        string cameraPostn = (mainCamera.transform.position - CameraEventLogger.startCameraPostn).ToString();
+        string cameraRottn = mainCamera.transform.rotation.ToString();
+        ManipulationEventArgs args = new ManipulationEventArgs(logCounter.ToString(), eventName, startTimestamp, endTimestamp, actionDetail, cameraPostn, cameraRottn);
+        LoggingManager.Instance.InvokeManipulationEvent(args);
+
+        //update UI State
+        LoggingManager.Instance.AcrossClassParameterManager.CurrentUIState.visualizationType = "trajectory";
+
     }
+
     public void WindowOpened()
     {
         showButton.SetActive(true);
@@ -584,6 +636,21 @@ public class UIChangeText : MonoBehaviour
             h32.SetActive(false);
             h33.SetActive(false);
         }
+
+        //logging
+        logCounter = logCounter + 1;
+        string startTimestamp = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+        string endTimestamp = "";
+        string eventName = "MenuClick";
+        string actionDetail = "windowOpen";
+        string cameraPostn = (mainCamera.transform.position - CameraEventLogger.startCameraPostn).ToString();
+        string cameraRottn = mainCamera.transform.rotation.ToString();
+        ManipulationEventArgs args = new ManipulationEventArgs(logCounter.ToString(), eventName, startTimestamp, endTimestamp, actionDetail, cameraPostn, cameraRottn);
+        LoggingManager.Instance.InvokeManipulationEvent(args);
+
+        //update UI State
+        LoggingManager.Instance.AcrossClassParameterManager.CurrentUIState.windowMode = "windowOpen";
+
     }
     public void WindowClosed()
     {
@@ -655,6 +722,20 @@ public class UIChangeText : MonoBehaviour
             h32.SetActive(false);
             h33.SetActive(false);
         }
+
+        //logging
+        logCounter = logCounter + 1;
+        string startTimestamp = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+        string endTimestamp = "";
+        string eventName = "MenuClick";
+        string actionDetail = "windowClosed";
+        string cameraPostn = (mainCamera.transform.position - CameraEventLogger.startCameraPostn).ToString();
+        string cameraRottn = mainCamera.transform.rotation.ToString();
+        ManipulationEventArgs args = new ManipulationEventArgs(logCounter.ToString(), eventName, startTimestamp, endTimestamp, actionDetail, cameraPostn, cameraRottn);
+        LoggingManager.Instance.InvokeManipulationEvent(args);
+
+        //update UI State
+        LoggingManager.Instance.AcrossClassParameterManager.CurrentUIState.windowMode = "windowClosed";
     }
     public void withAFan()
     {
@@ -724,6 +805,21 @@ public class UIChangeText : MonoBehaviour
             h32.SetActive(true);
             h33.SetActive(true);
         }
+
+        //logging
+        logCounter = logCounter + 1;
+        string startTimestamp = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+        string endTimestamp = "";
+        string eventName = "MenuClick";
+        string actionDetail = "fanOpen";
+        string cameraPostn = (mainCamera.transform.position - CameraEventLogger.startCameraPostn).ToString();
+        string cameraRottn = mainCamera.transform.rotation.ToString();
+        ManipulationEventArgs args = new ManipulationEventArgs(logCounter.ToString(), eventName, startTimestamp, endTimestamp, actionDetail, cameraPostn, cameraRottn);
+        LoggingManager.Instance.InvokeManipulationEvent(args);
+
+        //update UI State
+        LoggingManager.Instance.AcrossClassParameterManager.CurrentUIState.windowMode = "fanOpen";
+
     }
     public void backgroundButton()
     {
@@ -754,6 +850,19 @@ public class UIChangeText : MonoBehaviour
         PlaySound(1);
         showButton.SetActive(true);
 
+        //logging
+        logCounter = logCounter + 1;
+        string startTimestamp = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+        string endTimestamp = "";
+        string eventName = "MenuClick";
+        string actionDetail = "background";
+        string cameraPostn = (mainCamera.transform.position - CameraEventLogger.startCameraPostn).ToString();
+        string cameraRottn = mainCamera.transform.rotation.ToString();
+        ManipulationEventArgs args = new ManipulationEventArgs(logCounter.ToString(), eventName, startTimestamp, endTimestamp, actionDetail, cameraPostn, cameraRottn);
+        LoggingManager.Instance.InvokeManipulationEvent(args);
+
+        //update UI State
+        LoggingManager.Instance.AcrossClassParameterManager.CurrentUIState.windowMode = "background";
     }
     public void ShowText()
     {
@@ -812,6 +921,16 @@ public class UIChangeText : MonoBehaviour
                 break;
         }
 
+        //logging
+        logCounter = logCounter + 1;
+        string startTimestamp = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+        string endTimestamp = "";
+        string eventName = "MenuClick";
+        string actionDetail = "showText";
+        string cameraPostn = (mainCamera.transform.position - CameraEventLogger.startCameraPostn).ToString();
+        string cameraRottn = mainCamera.transform.rotation.ToString();
+        ManipulationEventArgs args = new ManipulationEventArgs(logCounter.ToString(), eventName, startTimestamp, endTimestamp, actionDetail, cameraPostn, cameraRottn);
+        LoggingManager.Instance.InvokeManipulationEvent(args);
     }
     public void DropDownData(int val)
     {
@@ -932,6 +1051,20 @@ public class UIChangeText : MonoBehaviour
             }
 
         }
+        //logging
+        logCounter = logCounter + 1;
+        string startTimestamp = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+        string endTimestamp = "";
+        string eventName = "MenuClick";
+        string actionDetail = "dropDownHeatmap Page "+page.ToString()+" Val "+val.ToString();
+        string cameraPostn = (mainCamera.transform.position - CameraEventLogger.startCameraPostn).ToString();
+        string cameraRottn = mainCamera.transform.rotation.ToString();
+        ManipulationEventArgs args = new ManipulationEventArgs(logCounter.ToString(), eventName, startTimestamp, endTimestamp, actionDetail, cameraPostn, cameraRottn);
+        LoggingManager.Instance.InvokeManipulationEvent(args);
+
+        //update UI State
+        LoggingManager.Instance.AcrossClassParameterManager.CurrentUIState.heatmapPage = page.ToString();
+        LoggingManager.Instance.AcrossClassParameterManager.CurrentUIState.heatmapLayer = val.ToString();
     }
 
 }
