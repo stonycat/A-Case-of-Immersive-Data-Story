@@ -21,6 +21,7 @@ public class UIChangeText : MonoBehaviour
     public AudioClip cnh21, cnh31, cnh41, cnp21, cnp31, cnp41;
     public GameObject aud;
     private AudioSource audioSrc;
+    private int map;
 
 
     public GameObject buttonR;
@@ -53,6 +54,8 @@ public class UIChangeText : MonoBehaviour
 
     public GameObject dropdown;
     public GameObject showLevel;
+
+    
 
     private string t1 = "";
     private string t2 = "";
@@ -104,7 +107,7 @@ public class UIChangeText : MonoBehaviour
         ray2.SetActive(false);
         ray3.SetActive(false);
         audioSrc = aud.GetComponent<AudioSource>();
-
+        map = 0;
 
     }
     public void setPage(int npage)
@@ -158,6 +161,7 @@ public class UIChangeText : MonoBehaviour
                 {
                     tex.GetComponent<TextMeshProUGUI>().text = t5; page += 1;
                     subtex.GetComponent<TextMeshProUGUI>().text = "1.5";
+                    firstPerson.GetComponent<Renderer>().material = blue;
                     buttonF.SetActive(false);
                     break;
                 }
@@ -208,6 +212,7 @@ public class UIChangeText : MonoBehaviour
                 tex.GetComponent<TextMeshProUGUI>().text = t4; page -= 1;
                 subtex.GetComponent<TextMeshProUGUI>().text = "1.4";
                 buttonF.SetActive(true);
+                firstPerson.GetComponent<Renderer>().material = white;
                 break;
 
             case 32:
@@ -290,6 +295,7 @@ public class UIChangeText : MonoBehaviour
         heatmap.SetActive(true);
         particle.SetActive(false);
         dropdown.SetActive(true);
+        firstPerson.GetComponent<Renderer>().material = blue;
         if (cases == 2)
         {
 
@@ -319,7 +325,7 @@ public class UIChangeText : MonoBehaviour
             h22.SetActive(false);
             h23.SetActive(false);
             h31.SetActive(false);
-            h23.SetActive(false);
+            h32.SetActive(false);
             h33.SetActive(false);
         }
         if (cases == 3)
@@ -344,7 +350,7 @@ public class UIChangeText : MonoBehaviour
             h22.SetActive(true);
             h23.SetActive(true);
             h31.SetActive(false);
-            h23.SetActive(false);
+            h32.SetActive(false);
             h33.SetActive(false);
         }
         if (cases == 4)
@@ -369,7 +375,7 @@ public class UIChangeText : MonoBehaviour
             h22.SetActive(false);
             h23.SetActive(false);
             h31.SetActive(true);
-            h23.SetActive(true);
+            h32.SetActive(true);
             h33.SetActive(true);
         }
 
@@ -381,6 +387,7 @@ public class UIChangeText : MonoBehaviour
         heatmap.SetActive(false);
         particle.SetActive(true);
         dropdown.SetActive(false);
+        firstPerson.GetComponent<Renderer>().material = blue;
         if (cases == 2)
         {
 
@@ -403,7 +410,7 @@ public class UIChangeText : MonoBehaviour
             boxU.SetActive(true);
             boxD.SetActive(false);
             audioSrc.Stop();
-            audioSrc.PlayOneShot(cnp31);
+            audioSrc.PlayOneShot(cnp21);
             p3.SetActive(false);
             p4.SetActive(false);
             p2.SetActive(true);
@@ -420,7 +427,7 @@ public class UIChangeText : MonoBehaviour
             boxD.SetActive(false);
             fan.SetActive(false);
             audioSrc.Stop();
-            audioSrc.PlayOneShot(cnp21);
+            audioSrc.PlayOneShot(cnp31);
             p3.SetActive(true);
             p2.SetActive(false);
             p4.SetActive(false);
@@ -450,6 +457,7 @@ public class UIChangeText : MonoBehaviour
         heatmap.SetActive(false);
         particle.SetActive(false);
         dropdown.SetActive(false);
+        firstPerson.GetComponent<Renderer>().material = blue;
         if (cases == 2)
         {
 
@@ -521,9 +529,10 @@ public class UIChangeText : MonoBehaviour
 
         background.SetActive(false);
         winclose.SetActive(false);
-        winopen.SetActive(true);
+        winopen.SetActive(true);  //button
         withafan.SetActive(false);
         showLevel.SetActive(true);
+        firstPerson.GetComponent<Renderer>().material = blue;
         if (page < 100)
         {
             tex.GetComponent<TextMeshProUGUI>().text = t_3_1;
@@ -579,6 +588,7 @@ public class UIChangeText : MonoBehaviour
             h31.SetActive(false);
             h32.SetActive(false);
             h33.SetActive(false);
+            DropDownHeatmap(map);
         }
     }
     public void WindowClosed()
@@ -589,9 +599,10 @@ public class UIChangeText : MonoBehaviour
         showLevel.SetActive(true);
 
         background.SetActive(false);
-        winclose.SetActive(true);
+        winclose.SetActive(true); //button
         winopen.SetActive(false);
         withafan.SetActive(false);
+        firstPerson.GetComponent<Renderer>().material = blue;
 
         if (page < 100)
         {
@@ -620,7 +631,7 @@ public class UIChangeText : MonoBehaviour
             boxD.SetActive(false);
             //buto.SetActive(false);
             page = 221;
-            buttonF.SetActive(true);
+            buttonF.SetActive(false);
             buttonR.SetActive(false);
             audioSrc.Stop();
             PlaySound(221);
@@ -637,7 +648,7 @@ public class UIChangeText : MonoBehaviour
             boxD.SetActive(false);
             //buto.SetActive(false);
             page = 121;
-            buttonF.SetActive(true);
+            buttonF.SetActive(false);
             buttonR.SetActive(false);
             audioSrc.Stop();
             PlaySound(121);
@@ -650,6 +661,7 @@ public class UIChangeText : MonoBehaviour
             h31.SetActive(false);
             h32.SetActive(false);
             h33.SetActive(false);
+            DropDownHeatmap(map);
         }
     }
     public void withAFan()
@@ -660,8 +672,9 @@ public class UIChangeText : MonoBehaviour
         background.SetActive(false);
         winclose.SetActive(false);
         winopen.SetActive(false);
-        withafan.SetActive(true);
+        withafan.SetActive(true); //button
         showLevel.SetActive(true);
+        firstPerson.GetComponent<Renderer>().material = blue;
 
         if (page < 100)
         {
@@ -672,7 +685,7 @@ public class UIChangeText : MonoBehaviour
             boxD.SetActive(true);
             fan.SetActive(true);
             page = 41;
-            buttonF.SetActive(true);
+            buttonF.SetActive(false);
             buttonR.SetActive(false);
             audioSrc.Stop();
             PlaySound(41);
@@ -689,7 +702,7 @@ public class UIChangeText : MonoBehaviour
             boxD.SetActive(true);
             fan.SetActive(true);
             page = 241;
-            buttonF.SetActive(true);
+            buttonF.SetActive(false);
             buttonR.SetActive(false);
             audioSrc.Stop();
             PlaySound(241);
@@ -706,7 +719,7 @@ public class UIChangeText : MonoBehaviour
             boxD.SetActive(true);
             fan.SetActive(true);
             page = 141;
-            buttonF.SetActive(true);
+            buttonF.SetActive(false);
             buttonR.SetActive(false);
             audioSrc.Stop();
             PlaySound(141);
@@ -719,6 +732,7 @@ public class UIChangeText : MonoBehaviour
             h31.SetActive(true);
             h32.SetActive(true);
             h33.SetActive(true);
+            DropDownHeatmap(map);
         }
     }
     public void backgroundButton()
@@ -729,6 +743,7 @@ public class UIChangeText : MonoBehaviour
         winopen.SetActive(false);
         withafan.SetActive(false);
         showLevel.SetActive(false);
+        firstPerson.GetComponent<Renderer>().material = white;
 
         dropdown.SetActive(false);
 
@@ -847,12 +862,14 @@ public class UIChangeText : MonoBehaviour
                 h11.SetActive(true);
                 h12.SetActive(true);
                 h13.SetActive(true);
+                map = 0;
             }
             if (val == 1)
             {
                 h11.SetActive(true);
                 h12.SetActive(false);
                 h13.SetActive(false);
+                map = 1;
 
             }
             if (val == 2)
@@ -860,12 +877,14 @@ public class UIChangeText : MonoBehaviour
                 h11.SetActive(false);
                 h12.SetActive(true);
                 h13.SetActive(false);
+                map = 2;
             }
             if (val == 3)
             {
                 h11.SetActive(false);
                 h12.SetActive(false);
                 h13.SetActive(true);
+                map = 3;
             }
 
         }
@@ -876,12 +895,15 @@ public class UIChangeText : MonoBehaviour
                 h21.SetActive(true);
                 h22.SetActive(true);
                 h23.SetActive(true);
+
+                map = 0;
             }
             if (val == 1)
             {
                 h21.SetActive(true);
                 h22.SetActive(false);
                 h23.SetActive(false);
+                map = 1;
 
             }
             if (val == 2)
@@ -889,12 +911,14 @@ public class UIChangeText : MonoBehaviour
                 h21.SetActive(false);
                 h22.SetActive(true);
                 h23.SetActive(false);
+                map = 2;
             }
             if (val == 3)
             {
                 h21.SetActive(false);
                 h22.SetActive(false);
                 h23.SetActive(true);
+                map = 3;
             }
 
         }
@@ -905,6 +929,7 @@ public class UIChangeText : MonoBehaviour
                 h31.SetActive(true);
                 h32.SetActive(true);
                 h33.SetActive(true);
+                map = 0;
 
             }
             if (val == 1)
@@ -912,6 +937,7 @@ public class UIChangeText : MonoBehaviour
                 h31.SetActive(true);
                 h32.SetActive(false);
                 h33.SetActive(false);
+                map = 1;
 
             }
             if (val == 2)
@@ -919,12 +945,14 @@ public class UIChangeText : MonoBehaviour
                 h31.SetActive(false);
                 h32.SetActive(true);
                 h33.SetActive(false);
+                map = 2;
             }
             if (val == 3)
             {
                 h31.SetActive(false);
                 h32.SetActive(false);
                 h33.SetActive(true);
+                map = 3;
             }
 
         }
