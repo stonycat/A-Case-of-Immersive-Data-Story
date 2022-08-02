@@ -107,7 +107,7 @@ public class UIChangeText : MonoBehaviour
 
 
     }
- /*   public void setPage(int npage)
+    public void setPage(int npage)
     {
         page = npage;
     }
@@ -115,7 +115,7 @@ public class UIChangeText : MonoBehaviour
     public int getPage()
     {
         return page;
-    }*/
+    }
 
     public void playAudio()
     {
@@ -228,8 +228,6 @@ public class UIChangeText : MonoBehaviour
         audioSrc.Stop();
         PlaySound(page);
     }
-    
-    //page current
     public void PlaySound(int clip)
     {
         switch (clip)
@@ -285,8 +283,6 @@ public class UIChangeText : MonoBehaviour
 
         }
     }
-    
-    
     public void Heatmap()
     {
 
@@ -385,7 +381,7 @@ public class UIChangeText : MonoBehaviour
         heatmap.SetActive(false);
         particle.SetActive(true);
         dropdown.SetActive(false);
-        if (cases == 2) //UI page conditions
+        if (cases == 2)
         {
 
             showLevel.SetActive(true);
@@ -528,7 +524,7 @@ public class UIChangeText : MonoBehaviour
         winopen.SetActive(true);
         withafan.SetActive(false);
         showLevel.SetActive(true);
-        if (page < 100)  //ray
+        if (page < 100)
         {
             tex.GetComponent<TextMeshProUGUI>().text = t_3_1;
             subtex.GetComponent<TextMeshProUGUI>().text = "3.1";
