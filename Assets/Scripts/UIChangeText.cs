@@ -55,8 +55,6 @@ public class UIChangeText : MonoBehaviour
     public GameObject dropdown;
     public GameObject showLevel;
 
-    
-
     private string t1 = "";
     private string t2 = "";
     private string t3 = "";
@@ -296,6 +294,8 @@ public class UIChangeText : MonoBehaviour
         particle.SetActive(false);
         dropdown.SetActive(true);
         firstPerson.GetComponent<Renderer>().material = blue;
+        DropDownHeatmap(map);
+
         if (cases == 2)
         {
 
@@ -316,7 +316,7 @@ public class UIChangeText : MonoBehaviour
             boxU.SetActive(true);
             boxD.SetActive(false);
             audioSrc.Stop();
-            audioSrc.PlayOneShot(cnh31);
+            audioSrc.PlayOneShot(cnh21);
             fan.SetActive(false);
             h11.SetActive(true);
             h12.SetActive(true);
@@ -339,7 +339,7 @@ public class UIChangeText : MonoBehaviour
             boxU.SetActive(true);
             boxD.SetActive(false);
             audioSrc.Stop();
-            audioSrc.PlayOneShot(cnh21);
+            audioSrc.PlayOneShot(cnh31);
             fan.SetActive(false);
             boxU.SetActive(true);
             boxD.SetActive(false);
@@ -479,7 +479,7 @@ public class UIChangeText : MonoBehaviour
             boxD.SetActive(false);
             fan.SetActive(false);
             audioSrc.Stop();
-            audioSrc.PlayOneShot(cnl31);
+            audioSrc.PlayOneShot(cnl21);
             ray1.SetActive(true);
             ray2.SetActive(false);
             ray3.SetActive(false);
@@ -495,7 +495,7 @@ public class UIChangeText : MonoBehaviour
             boxU.SetActive(true);
             boxD.SetActive(false);
             audioSrc.Stop();
-            audioSrc.PlayOneShot(cnl21);
+            audioSrc.PlayOneShot(cnl31);
             boxU.SetActive(true);
             fan.SetActive(false);
             boxD.SetActive(false);
@@ -529,7 +529,7 @@ public class UIChangeText : MonoBehaviour
 
         background.SetActive(false);
         winclose.SetActive(false);
-        winopen.SetActive(true);  //button
+        winopen.SetActive(true);
         withafan.SetActive(false);
         showLevel.SetActive(true);
         firstPerson.GetComponent<Renderer>().material = blue;
@@ -599,7 +599,7 @@ public class UIChangeText : MonoBehaviour
         showLevel.SetActive(true);
 
         background.SetActive(false);
-        winclose.SetActive(true); //button
+        winclose.SetActive(true);
         winopen.SetActive(false);
         withafan.SetActive(false);
         firstPerson.GetComponent<Renderer>().material = blue;
@@ -672,7 +672,7 @@ public class UIChangeText : MonoBehaviour
         background.SetActive(false);
         winclose.SetActive(false);
         winopen.SetActive(false);
-        withafan.SetActive(true); //button
+        withafan.SetActive(true);
         showLevel.SetActive(true);
         firstPerson.GetComponent<Renderer>().material = blue;
 
