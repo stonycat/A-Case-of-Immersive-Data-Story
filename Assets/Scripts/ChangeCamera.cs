@@ -14,7 +14,6 @@ public class ChangeCamera : MonoBehaviour
     private InputAction _camera;
     private bool up;
     public GameObject wall;
-    public GameObject tele;
 
     //public GameObject leftHand;
     //public GameObject rightHand;
@@ -47,7 +46,6 @@ public class ChangeCamera : MonoBehaviour
 
             up = false;
             wall.SetActive(true);
-            tele.SetActive(true);
         }
         else
         {
@@ -62,7 +60,6 @@ public class ChangeCamera : MonoBehaviour
 
             up = true;
             wall.SetActive(false);
-            tele.SetActive(false);
         }
         /*
         if(up){
