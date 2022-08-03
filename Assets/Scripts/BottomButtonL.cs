@@ -31,6 +31,13 @@ public class BottomButtonL : MonoBehaviour
     }
     public void OpenClose(InputAction.CallbackContext context) // open menu
     {
+        Debug.Log("<pf> in openclosemenu");
+        // start logging here
+        if (LoggingManager.Instance) {
+            LoggingManager.Instance.StartLogging();
+            Debug.Log("<pf> startlogging");
+        }
+
         if (open)
         {
             _anima.Play("close");

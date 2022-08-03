@@ -1056,7 +1056,7 @@ public class UIChangeText : MonoBehaviour
         string startTimestamp = DateTime.Now.ToString("yyyyMMddHHmmssfff");
         string endTimestamp = "";
         string eventName = "MenuClick";
-        string actionDetail = "dropDownHeatmap Page "+page.ToString()+" Val "+val.ToString();
+        string actionDetail = "dropDownHeatmap__Page__"+page.ToString()+" Val__"+val.ToString();
         string cameraPostn = (mainCamera.transform.position - CameraEventLogger.startCameraPostn).ToString();
         string cameraRottn = mainCamera.transform.rotation.ToString();
         ManipulationEventArgs args = new ManipulationEventArgs(logCounter.ToString(), eventName, startTimestamp, endTimestamp, actionDetail, cameraPostn, cameraRottn);

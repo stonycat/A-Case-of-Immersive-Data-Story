@@ -7,8 +7,8 @@ using TMPro;
 public class NetworkSupporter : MonoBehaviour
 {
     //[SerializeField]
-    //private string m_serverBaseUrl = "http://10.79.102.121:1515/";
-    private string m_serverBaseUrl = "http://alex2021ubicomp.s14.hkustvis.org/";
+    private string m_serverBaseUrl = "http://10.89.231.113:1515/";
+    //private string m_serverBaseUrl = "http://alex2021ubicomp.s14.hkustvis.org/";
 
     public string ServerBaseUrl { get => m_serverBaseUrl; private set => m_serverBaseUrl = value; }
 
@@ -52,14 +52,16 @@ public class NetworkSupporter : MonoBehaviour
         form.AddField("SessionId", dataObject.SessionId);
 
         form.AddField("LogCounter", dataObject.LogCounter);
-        form.AddField("EventStartTime", dataObject.EventStartTime);
         form.AddField("EventName", dataObject.EventName);
+        form.AddField("EventStartTime", dataObject.EventStartTime);
+        form.AddField("EventEndTime", dataObject.EventEndTime);
         form.AddField("ActionValue", dataObject.ActionValue);
         form.AddField("CameraPosition", dataObject.CameraPosition);
         form.AddField("CameraRotation", dataObject.CameraRotation);
 
         using (UnityWebRequest request = UnityWebRequest.Post(url, form))
         {
+            Debug.Log("<pf> upload manipulation event");
 
             yield return request.SendWebRequest();
 
@@ -76,6 +78,8 @@ public class NetworkSupporter : MonoBehaviour
 
     public IEnumerator RecordCameraEvent(CameraEventDataObject dataObject)
     {
+        Debug.Log("<pf> upload camera event");
+
         string url = string.Format("{0}/recordCameraEvent", m_serverBaseUrl);
 
         WWWForm form = new WWWForm();
@@ -149,7 +153,7 @@ public class NetworkSupporter : MonoBehaviour
         //TMP_Text infoForUser = tmpObj.GetComponent<TMPro.TextMeshProUGUI>();
         //infoForUser.SetText("");
         //infoForUser.ForceMeshUpdate(true);
-        Debug.Log("Error in uploading the logs to the server!");
+        Debug.Log("<pf> Error in uploading the logs to the server!");
     }
 
 }
