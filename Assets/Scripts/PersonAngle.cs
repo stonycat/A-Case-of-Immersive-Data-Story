@@ -30,6 +30,7 @@ public class PersonAngle : MonoBehaviour
         prig.SetActive(true);
         but.SetActive(false);
 
+        //Debug.Log("personNo." + person.name);
         leftHand.SetActive(false);
         rightHand.SetActive(false);
         //logging
@@ -37,11 +38,13 @@ public class PersonAngle : MonoBehaviour
         string startTimestamp = DateTime.Now.ToString("yyyyMMddHHmmssfff");
         string endTimestamp = "";
         string eventName = "StudentPSwitch";
-        string actionDetail = "enter";
+        string actionDetail = "enter_";
+        //add aniNum
+        string personNumber = actionDetail + person.name;
 
         string cameraPostn = (mainCamera.transform.position - CameraEventLogger.startCameraPostn).ToString();
         string cameraRottn = mainCamera.transform.rotation.ToString();
-        ManipulationEventArgs args = new ManipulationEventArgs(logCounter.ToString(), eventName, startTimestamp, endTimestamp, actionDetail, cameraPostn, cameraRottn);
+        ManipulationEventArgs args = new ManipulationEventArgs(logCounter.ToString(), eventName, startTimestamp, endTimestamp, personNumber, cameraPostn, cameraRottn);
         LoggingManager.Instance.InvokeManipulationEvent(args);
     }
     public void ExitPersonAngle()
@@ -58,10 +61,13 @@ public class PersonAngle : MonoBehaviour
         string startTimestamp = DateTime.Now.ToString("yyyyMMddHHmmssfff");
         string endTimestamp = "";
         string eventName = "StudentPSwitch";
-        string actionDetail = "exit";
+        string actionDetail = "exit_";
+        //add aniNum
+        string personNumber = actionDetail + person.name;
+
         string cameraPostn = (mainCamera.transform.position - CameraEventLogger.startCameraPostn).ToString();
         string cameraRottn = mainCamera.transform.rotation.ToString();
-        ManipulationEventArgs args = new ManipulationEventArgs(logCounter.ToString(), eventName, startTimestamp, endTimestamp, actionDetail, cameraPostn, cameraRottn);
+        ManipulationEventArgs args = new ManipulationEventArgs(logCounter.ToString(), eventName, startTimestamp, endTimestamp, personNumber, cameraPostn, cameraRottn);
         LoggingManager.Instance.InvokeManipulationEvent(args);
     }
 
