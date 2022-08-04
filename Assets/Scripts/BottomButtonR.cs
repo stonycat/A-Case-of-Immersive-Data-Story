@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
+using System;
 
 public class BottomButtonR : MonoBehaviour
 {
@@ -15,6 +16,16 @@ public class BottomButtonR : MonoBehaviour
     private InputAction _menu;
     private InputAction _ray;
     private InputAction _select;
+
+    //logging
+    private int logCounter = 0;
+    private Camera mainCamera;
+
+    private void OnEnable()
+    {
+        mainCamera = Camera.main;
+    }
+
     void Start()
     {
         _anima = GetComponent<Animator>();
@@ -58,7 +69,7 @@ public class BottomButtonR : MonoBehaviour
 
     }
 
-    public void OpenCloseRay(InputAction.CallbackContext context) //A °´¼ü
+    public void OpenCloseRay(InputAction.CallbackContext context) //A ????
     {
         if (openRay)
         {
@@ -73,6 +84,17 @@ public class BottomButtonR : MonoBehaviour
             openRay = true;
         }
 
+        //logging
+        logCounter = logCounter + 1;
+        string startTimestamp = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+        string endTimestamp = "";
+        string eventName = "OpenCloseRay";
+        string actionDetail = "open";
+        if (logCounter % 2 == 0) { actionDetail = "close"; }
+        string cameraPostn = (mainCamera.transform.position - CameraEventLogger.startCameraPostn).ToString();
+        string cameraRottn = mainCamera.transform.rotation.ToString();
+        ManipulationEventArgs args = new ManipulationEventArgs(logCounter.ToString(), eventName, startTimestamp, endTimestamp, actionDetail, cameraPostn, cameraRottn);
+        LoggingManager.Instance.InvokeManipulationEvent(args);
     }
 }
 

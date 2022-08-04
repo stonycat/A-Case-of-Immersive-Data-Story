@@ -18,6 +18,15 @@ public class ChangeCamera : MonoBehaviour
 
     //public GameObject leftHand;
     //public GameObject rightHand;
+    //logging
+    private int logCounter = 0;
+    private Camera mainCamera;
+
+    private void OnEnable()
+    {
+        mainCamera = Camera.main;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -77,6 +86,21 @@ public class ChangeCamera : MonoBehaviour
             up = true;
         }
         */
+
+        //logging
+        UIState UIStat = LoggingManager.Instance.AcrossClassParameterManager.CurrentUIState;
+        logCounter = logCounter + 1;
+        string startTimestamp = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+        string endTimestamp = "";
+        string eventName = "SwitchPerspective";
+        string actionDetail = "{thirdP__";
+        if (logCounter % 2 == 0) { actionDetail = "firstP__"; }
+        actionDetail = actionDetail + "windowMode: " + UIStat.windowMode + "__" + "visualizationType: " + UIStat.visualizationType + "__"
+            + "heatmapPage: " + UIStat.heatmapPage + "__" + "heatmapLayer: " + UIStat.heatmapLayer;
+        string cameraPostn = (mainCamera.transform.position - CameraEventLogger.startCameraPostn).ToString();
+        string cameraRottn = mainCamera.transform.rotation.ToString();
+        ManipulationEventArgs args = new ManipulationEventArgs(logCounter.ToString(), eventName, startTimestamp, endTimestamp, actionDetail, cameraPostn, cameraRottn);
+        LoggingManager.Instance.InvokeManipulationEvent(args);
     }
 
     private Quaternion Quaternion(int v1, int v2, int v3, int v4)
