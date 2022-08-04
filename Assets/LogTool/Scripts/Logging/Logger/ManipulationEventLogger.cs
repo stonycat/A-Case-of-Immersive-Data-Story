@@ -18,7 +18,7 @@ public class ManipulationEventLogger : BaseEventLogger
         m_customEvent.RemoveAllListeners();
     }
 
-    public void InvokeCustomEvent(ManipulationEventArgs a_args) {
+    public void InvokeCustomEvent(ManipulationEventArgs a_args) {  
         m_customEvent.Invoke(a_args);
     }
 

@@ -38,6 +38,7 @@ public class PersonAngle : MonoBehaviour
         string endTimestamp = "";
         string eventName = "StudentPSwitch";
         string actionDetail = "enter";
+
         string cameraPostn = (mainCamera.transform.position - CameraEventLogger.startCameraPostn).ToString();
         string cameraRottn = mainCamera.transform.rotation.ToString();
         ManipulationEventArgs args = new ManipulationEventArgs(logCounter.ToString(), eventName, startTimestamp, endTimestamp, actionDetail, cameraPostn, cameraRottn);
