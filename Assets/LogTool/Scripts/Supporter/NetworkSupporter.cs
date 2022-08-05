@@ -7,8 +7,8 @@ using TMPro;
 public class NetworkSupporter : MonoBehaviour
 {
     //[SerializeField]
-    private string m_serverBaseUrl = "http://10.89.231.113:1515/";
-    //private string m_serverBaseUrl = "http://alex2021ubicomp.s14.hkustvis.org/";
+    // private string m_serverBaseUrl = "http://10.89.231.113:1515/";
+    private string m_serverBaseUrl = "http://alex2021ubicomp.s14.hkustvis.org/";
 
     public string ServerBaseUrl { get => m_serverBaseUrl; private set => m_serverBaseUrl = value; }
 
