@@ -68,15 +68,15 @@ public class valueShow : MonoBehaviour
             //Debug.Log(GameObject.Find("Main Camera").transform.position.x);
             if (GameObject.Find("Main Camera").transform.position.z > -0.22 && GameObject.Find("Main Camera").transform.position.z < 2.91)
             {
-                slider.value = 5;
+                slider.value = 5;  //area3
             }
             else if (GameObject.Find("Main Camera").transform.position.z > 2.91 && GameObject.Find("Main Camera").transform.position.z < 5.05)
             {
-                slider.value = 5;
+                slider.value = 5;  //area6
             }
             else if (GameObject.Find("Main Camera").transform.position.z > 5.05 && GameObject.Find("Main Camera").transform.position.z < 7.74)
             {
-                slider.value = 4; //not 3
+                slider.value = 4; //area9  value 3->4
             }
             else
             {
@@ -87,15 +87,15 @@ public class valueShow : MonoBehaviour
         {
             if (GameObject.Find("Main Camera").transform.position.z > -0.22 && GameObject.Find("Main Camera").transform.position.z < 2.91)
             {
-                slider.value = 5;
+                slider.value = 5; //area2
             }
             else if (GameObject.Find("Main Camera").transform.position.z > 2.91 && GameObject.Find("Main Camera").transform.position.z < 5.05)
             {
-                slider.value = 4;
+                slider.value = 4; //area5
             }
             else if (GameObject.Find("Main Camera").transform.position.z > 5.05 && GameObject.Find("Main Camera").transform.position.z < 7.74)
             {
-                slider.value = 3;
+                slider.value = 3; //area8
             }
             else
             {
@@ -106,15 +106,15 @@ public class valueShow : MonoBehaviour
         {
             if (GameObject.Find("Main Camera").transform.position.z > -0.22 && GameObject.Find("Main Camera").transform.position.z < 2.91)
             {
-                slider.value = 3;
+                slider.value = 3; //area1
             }
             else if (GameObject.Find("Main Camera").transform.position.z > 2.91 && GameObject.Find("Main Camera").transform.position.z < 5.05)
             {
-                slider.value = 3;
+                slider.value = 3; //area4
             }
             else if (GameObject.Find("Main Camera").transform.position.z > 5.05 && GameObject.Find("Main Camera").transform.position.z < 7.74)
             {
-                slider.value = 2;
+                slider.value = 2; //area7
             }
             else
             {
