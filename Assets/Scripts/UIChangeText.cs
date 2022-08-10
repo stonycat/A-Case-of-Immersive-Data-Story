@@ -38,7 +38,7 @@ public class UIChangeText : MonoBehaviour
     public GameObject h11, h12, h13, h21, h22, h23, h31, h32, h33;
     public GameObject p2, p3, p4;
 
-    public GameObject showButton;
+    //public GameObject showButton;
 
     public GameObject boxU;
     public GameObject boxD;
@@ -145,7 +145,7 @@ public class UIChangeText : MonoBehaviour
 
     public void ChangeTextF()
     {
-        showButton.SetActive(true);
+        //showButton.SetActive(true);
         switch (page)
         {
 
@@ -203,7 +203,7 @@ public class UIChangeText : MonoBehaviour
     }
     public void ChangeTextB()
     {
-        showButton.SetActive(true);
+        //showButton.SetActive(true);
         switch (page)
         {
             /*
@@ -584,7 +584,7 @@ public class UIChangeText : MonoBehaviour
 
     public void WindowOpened()
     {
-        showButton.SetActive(true);
+        //showButton.SetActive(true);
         fan.SetActive(false);
         mark3.SetActive(false);
 
@@ -668,7 +668,7 @@ public class UIChangeText : MonoBehaviour
     }
     public void WindowClosed()
     {
-        showButton.SetActive(true);
+        //showButton.SetActive(true);
         fan.SetActive(false);
         mark3.SetActive(false);
         showLevel.SetActive(true);
@@ -754,7 +754,7 @@ public class UIChangeText : MonoBehaviour
     }
     public void withAFan()
     {
-        showButton.SetActive(true);
+        //showButton.SetActive(true);
         mark3.SetActive(false);
 
         background.SetActive(false);
@@ -868,7 +868,7 @@ public class UIChangeText : MonoBehaviour
         {
             PlaySound(page);
         }
-        showButton.SetActive(true);
+        //showButton.SetActive(true);
 
         //logging
         logCounter = logCounter + 1;
@@ -884,9 +884,10 @@ public class UIChangeText : MonoBehaviour
         //update UI State
         LoggingManager.Instance.AcrossClassParameterManager.CurrentUIState.windowMode = "background";
     }
+    /*
     public void ShowText()
     {
-        showButton.SetActive(false);
+        //showButton.SetActive(false);
         switch (page)
         {
             case 1:
@@ -941,6 +942,7 @@ public class UIChangeText : MonoBehaviour
                 break;
         }
 
+
         //logging
         logCounter = logCounter + 1;
         string startTimestamp = DateTime.Now.ToString("yyyyMMddHHmmssfff");
@@ -952,6 +954,7 @@ public class UIChangeText : MonoBehaviour
         ManipulationEventArgs args = new ManipulationEventArgs(logCounter.ToString(), eventName, startTimestamp, endTimestamp, actionDetail, cameraPostn, cameraRottn);
         LoggingManager.Instance.InvokeManipulationEvent(args);
     }
+        */
     public void DropDownData(int val)
     {
         if (page == 31 || page == 32 || page == 33 || page == 34 || page == 131 || page == 132 || page == 133 || page == 134 || page == 231 || page == 232 || page == 233 || page == 234)

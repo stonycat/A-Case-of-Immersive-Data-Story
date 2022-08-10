@@ -21,6 +21,7 @@ public class ChangeCamera : MonoBehaviour
     //logging
     private int logCounter = 0;
     private Camera mainCamera;
+    private static float x, z;
 
     private void OnEnable()
     {
@@ -40,10 +41,10 @@ public class ChangeCamera : MonoBehaviour
     // Update is called once per frame
     public void ToggleCamera(InputAction.CallbackContext context)
     {
-        
         if (up)
         {
-            transform.position += new Vector3(0,-5,-14);
+            
+            transform.position = new Vector3(x,0,z);
             //transform.Rotate(new Vector3(330 ,305, 0));
             transform.rotation = new Quaternion(0, 90, 0, 0);
             //rig.GetComponent<>
@@ -60,8 +61,10 @@ public class ChangeCamera : MonoBehaviour
         }
         else
         {
-            transform.position += new Vector3(0, 5, 14);
-            transform.rotation = new Quaternion(30, 145, -30, 0);
+            x = transform.position.x;
+            z = transform.position.z;
+            transform.position = new Vector3(-8, 6, 16);
+            transform.rotation = new Quaternion(40, 145, -40, 0);
             //transform.Rotate(new Vector3(30,55,0));
 
     //        leftHand.transform.position += new Vector3(0, 5, 14);

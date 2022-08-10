@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: HKUST
-  productName: prototype
+  productName: prototype810
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
@@ -147,7 +147,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 2.0
+  bundleVersion: 3.0
   preloadedAssets:
   - {fileID: 0}
   - {fileID: 0}
@@ -166,8 +166,14 @@ PlayerSettings:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 724918614523763421, guid: 5ff74492a84b64ed7a0e7c162f53d570, type: 2}
-  - {fileID: -6873098292014835388, guid: c336d0f4b4f10447ea452fcb744c4121, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 5917138182421583399, guid: 5ff74492a84b64ed7a0e7c162f53d570, type: 2}
+  - {fileID: 2212028453047527168, guid: c336d0f4b4f10447ea452fcb744c4121, type: 2}
+  - {fileID: 11400000, guid: aa9314325725c4be881931ef20bbc1aa, type: 2}
   - {fileID: 0}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -188,7 +194,8 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.HKUST.prototype
+    Android: com.HKUST.prototype810
+    Standalone: com.HKUST.prototype
   buildNumber:
     Standalone: 0
     iPhone: 0
@@ -278,7 +285,7 @@ PlayerSettings:
   useCustomBaseGradleTemplate: 0
   useCustomGradlePropertiesTemplate: 0
   useCustomProguardFile: 0
-  AndroidTargetArchitectures: 1
+  AndroidTargetArchitectures: 2
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
