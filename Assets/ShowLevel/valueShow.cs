@@ -208,7 +208,7 @@ public class valueShow : MonoBehaviour
             }
             else if (GameObject.Find("Main Camera").transform.position.z > 2.91 && GameObject.Find("Main Camera").transform.position.z < 5.05)
             {
-                slider.value = 3;
+                slider.value = 2;
             }
             else if (GameObject.Find("Main Camera").transform.position.z > 5.05 && GameObject.Find("Main Camera").transform.position.z < 7.74)
             {
