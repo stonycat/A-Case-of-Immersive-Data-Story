@@ -48,7 +48,7 @@ public class LoggingManager : MonoBehaviour
 
     public void StartLogging() {
         m_manipulationEventLogger?.StartListening();
-        m_cameraEventLogger.gameObject.SetActive(true);
+        //m_cameraEventLogger.gameObject.SetActive(true);
     }
 
 
@@ -83,7 +83,11 @@ public class LoggingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (LoggingManager.Instance)
+        {
+            LoggingManager.Instance.StartLogging();
+            Debug.Log("<pf> startlogging");
+        }
     }
 
     // Update is called once per frame
