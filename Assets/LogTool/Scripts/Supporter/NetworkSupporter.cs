@@ -7,8 +7,8 @@ using TMPro;
 public class NetworkSupporter : MonoBehaviour
 {
     //[SerializeField]
-     private string m_serverBaseUrl = "http://10.89.231.113:1515/";
-    //private string m_serverBaseUrl = "http://alex2021ubicomp.s14.hkustvis.org/";
+     //private string m_serverBaseUrl = "http://10.89.231.113:1515/";
+    private string m_serverBaseUrl = "http://alex2021ubicomp.s14.hkustvis.org/";
 
     public string ServerBaseUrl { get => m_serverBaseUrl; private set => m_serverBaseUrl = value; }
 
@@ -71,7 +71,7 @@ public class NetworkSupporter : MonoBehaviour
             }
             else
             {
-                HandleNetworkUploadSuccess();
+                HandleNetworkUploadSuccess("RecordManipulationEvent");
             }
         }
     }
@@ -108,7 +108,7 @@ public class NetworkSupporter : MonoBehaviour
             }
             else
             {
-                HandleNetworkUploadSuccess();
+                HandleNetworkUploadSuccess("RecordCameraEvent");
             }
         }
     }
@@ -134,7 +134,7 @@ public class NetworkSupporter : MonoBehaviour
             }
             else
             {
-                HandleNetworkUploadSuccess();
+                HandleNetworkUploadSuccess("RecordSessionInformation");
             }
         }
     }
@@ -147,13 +147,13 @@ public class NetworkSupporter : MonoBehaviour
         infoForUser.ForceMeshUpdate(true);
     }
 
-    private void HandleNetworkUploadSuccess()
+    private void HandleNetworkUploadSuccess(string type)
     {
         //GameObject tmpObj = GameObject.Find("DebugInfoForUser");
         //TMP_Text infoForUser = tmpObj.GetComponent<TMPro.TextMeshProUGUI>();
         //infoForUser.SetText("");
         //infoForUser.ForceMeshUpdate(true);
-        Debug.Log("<pf> Error in uploading the logs to the server!");
+        //Debug.Log("<pf> Successful in uploading the logs to the server! "+ type);
     }
 
 }

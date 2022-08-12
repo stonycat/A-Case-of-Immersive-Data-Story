@@ -37,14 +37,6 @@ public class UI : MonoBehaviour
     // Update is called once per frame
     public void ToggleMenu(InputAction.CallbackContext context)  //X????
     {
-        //Debug.Log("<pf> in togglemenu");
-        //// start logging here
-        //if (LoggingManager.Instance)
-        //{
-        //    LoggingManager.Instance.StartLogging();
-        //    Debug.Log("<pf> startlogging");
-        //}
-
         _canv.enabled = !_canv.enabled;
 
         if(!_canv.enabled)

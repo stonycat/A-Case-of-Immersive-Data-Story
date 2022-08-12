@@ -104,6 +104,8 @@ public class UIChangeText : MonoBehaviour
     private int logCounter = 0;
     private Camera mainCamera;
 
+    private bool logDropDownHeatmap = true;
+
     private void OnEnable()
     {
         mainCamera = Camera.main;
@@ -315,6 +317,7 @@ public class UIChangeText : MonoBehaviour
         particle.SetActive(false);
         dropdown.SetActive(true);
         firstPerson.GetComponent<Renderer>().material = blue;
+        logDropDownHeatmap = false;
         DropDownHeatmap(map);
 
         if (cases == 2)
@@ -643,6 +646,7 @@ public class UIChangeText : MonoBehaviour
             h31.SetActive(false);
             h32.SetActive(false);
             h33.SetActive(false);
+            logDropDownHeatmap = false;
             DropDownHeatmap(map);
         }
         audioSrc.Stop();
@@ -730,6 +734,7 @@ public class UIChangeText : MonoBehaviour
             h31.SetActive(false);
             h32.SetActive(false);
             h33.SetActive(false);
+            logDropDownHeatmap = false;
             DropDownHeatmap(map);
         }
         audioSrc.Stop();
@@ -814,6 +819,7 @@ public class UIChangeText : MonoBehaviour
             h31.SetActive(true);
             h32.SetActive(true);
             h33.SetActive(true);
+            logDropDownHeatmap = false;
             DropDownHeatmap(map);
         }
         audioSrc.Stop();
@@ -1088,20 +1094,27 @@ public class UIChangeText : MonoBehaviour
 
         }
         //logging
-        logCounter = logCounter + 1;
-        string startTimestamp = DateTime.Now.ToString("yyyyMMddHHmmssfff");
-        string endTimestamp = "";
-        string eventName = "MenuClick";
-        string actionDetail = "dropDownHeatmap__Page__"+page.ToString()+" Val__"+val.ToString();
-        string cameraPostn = (mainCamera.transform.position - CameraEventLogger.startCameraPostn).ToString();
-        string cameraRottn = mainCamera.transform.rotation.ToString();
-        ManipulationEventArgs args = new ManipulationEventArgs(logCounter.ToString(), eventName, startTimestamp, endTimestamp, actionDetail, cameraPostn, cameraRottn);
-        LoggingManager.Instance.InvokeManipulationEvent(args);
-
+        if (logDropDownHeatmap)
+        {
+            logCounter = logCounter + 1;
+            string startTimestamp = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+            string endTimestamp = "";
+            string eventName = "MenuClick";
+            string actionDetail = "dropDownHeatmap__Page__" + page.ToString() + " Val__" + val.ToString();
+            string cameraPostn = (mainCamera.transform.position - CameraEventLogger.startCameraPostn).ToString();
+            string cameraRottn = mainCamera.transform.rotation.ToString();
+            ManipulationEventArgs args = new ManipulationEventArgs(logCounter.ToString(), eventName, startTimestamp, endTimestamp, actionDetail, cameraPostn, cameraRottn);
+            LoggingManager.Instance.InvokeManipulationEvent(args);
+        }
+        else {
+            logDropDownHeatmap = true;
+        }
+    
         //update UI State
         LoggingManager.Instance.AcrossClassParameterManager.CurrentUIState.heatmapPage = page.ToString();
         LoggingManager.Instance.AcrossClassParameterManager.CurrentUIState.heatmapLayer = val.ToString();
     }
+
     public void Auto()
     {
         

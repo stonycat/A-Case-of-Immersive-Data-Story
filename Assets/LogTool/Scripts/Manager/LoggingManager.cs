@@ -48,7 +48,7 @@ public class LoggingManager : MonoBehaviour
 
     public void StartLogging() {
         m_manipulationEventLogger?.StartListening();
-        //m_cameraEventLogger.gameObject.SetActive(true);
+        m_cameraEventLogger.gameObject.SetActive(true);
     }
 
 
@@ -83,9 +83,9 @@ public class LoggingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (LoggingManager.Instance)
+        if (LoggingManager.Instance) 
         {
-            LoggingManager.Instance.StartLogging();
+            LoggingManager.Instance.StartLogging(); // 只能开一次，如果每次都开的话，会增加很多个listeners，每一个listner都会记录数据。
             Debug.Log("<pf> startlogging");
         }
     }
