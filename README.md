@@ -13,8 +13,18 @@ This work is published in [the International Journal of Human-Computer Studies (
 ## Functions in this case of VR Data Story:
 1. Three kinds of immersive data representations of Covid-19 depiction (trajectory, particles, heatmap).
 2. We offer three types of perspectives for users to experience: the 1st-person perspective, the 3rd-person perspective, and the perspective of the characters (i.e., the students and the teacher).
-3. We implemented four kinds of embodied interactions in the VR data story, including VR wrist menu, interactive buttons within the environment, an interactive concentration indicator board that show the level of Covid-19 based on users' locations, and two movement methods (continuous movement and VR teleportation).
+3. We implemented four kinds of embodied interactions in the VR data story, including VR wrist menu, interactive buttons within the environment, an interactive concentration indicator board that shows the level of COVID-19 based on users' locations, and two movement methods (continuous movement and VR teleportation).
 4. We converted and refined the original textual content of the data story into spatial audio clips in VR to guide users to understand and explore the story.
 5. We provided several useful spatial cues in the form of visual and textual elements in the immersive data story.
+
+## Usage
+The example scene can be found in the Assets/Scenes/ folder. The VR data story has been tested using a standalone VR headset, such as Oculus Quest 2 (with both controllers).
+
+## Acknowledgements
+This case of immersive data story was developed by the first authors and the co-authors (Linping Yuan and Zian Xu) of this paper.
+We added logging functions within this Unity project to record users' behaviors data. Details are shown in the Assets/LogTool/ folder.
+
+
+
 
 
