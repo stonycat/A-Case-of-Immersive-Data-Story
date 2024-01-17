@@ -10,6 +10,18 @@ The story aims to communicate health risk information to the public and raise pe
 
 This work is published in [the International Journal of Human-Computer Studies (IJHCS)](https://www.sciencedirect.com/journal/international-journal-of-human-computer-studies), Jan. 2024, titled [From Reader to Experiencer: Design and Evaluation of an Interactive VR Data Story for Promoting the Situation Awareness of Public Health Threats](https://www.sciencedirect.com/science/article/abs/pii/S1071581923001465).
 
+(If you would like to) cite this paper (BibTex from Google Scholar):
+@article{zhu2024reader,
+  title={From reader to experiencer: Design and evaluation of a VR data story for promoting the situation awareness of public health threats},
+  author={Zhu, Qian and Yuan, Linping and Xu, Zian and Yang, Leni and Xia, Meng and Wang, Zhuo and Liang, Hai-Ning and Ma, Xiaojuan},
+  journal={International Journal of Human-Computer Studies},
+  volume={181},
+  pages={103137},
+  year={2024},
+  publisher={Elsevier}
+}
+
+
 ## Functions in this case of VR Data Story:
 1. Three kinds of immersive data representations of Covid-19 depiction (trajectory, particles, heatmap).
 2. We offer three types of perspectives for users to experience: the 1st-person perspective, the 3rd-person perspective, and the perspective of the characters (i.e., the students and the teacher).
