@@ -11,7 +11,7 @@ The story aims to communicate health risk information to the public and raise pe
 This work is published in [the International Journal of Human-Computer Studies (IJHCS)](https://www.sciencedirect.com/journal/international-journal-of-human-computer-studies), Jan. 2024, titled [From Reader to Experiencer: Design and Evaluation of an Interactive VR Data Story for Promoting the Situation Awareness of Public Health Threats](https://www.sciencedirect.com/science/article/abs/pii/S1071581923001465).
 
 (If you would like to) cite this paper (BibTex from Google Scholar): <br>
-`\```@article{zhu2024reader,<br>
+*@article{zhu2024reader,<br>
 title={From reader to experiencer: Design and evaluation of a VR data story for promoting the situation awareness of public health threats},<br>
 author={Zhu, Qian and Yuan, Linping and Xu, Zian and Yang, Leni and Xia, Meng and Wang, Zhuo and Liang, Hai-Ning and Ma, Xiaojuan},<br>
 journal={International Journal of Human-Computer Studies},<br>
@@ -19,7 +19,7 @@ volume={181},<br>
 pages={103137},<br>
 year={2024},<br>
 publisher={Elsevier}<br>
-}`
+}*
 
 
 ## Functions in this case of VR Data Story:
