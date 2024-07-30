@@ -1,4 +1,6 @@
-# Design and Evaluation of an Interactive VR Data Story for Promoting the Situation Awareness of Public Health Threats
+# From Reader to Experiencer: Design and Evaluation of an Interactive VR Data Story for Promoting the Situation Awareness of Public Health Threats
+This repository contains the code of a VR data story case, an adapted immersive story for raising public health awareness during the COVID-19 pandemic.
+
 We implemented **a case of VR data story** with five design considerations:
 1. (Providing) Alternative data representations, 
 2. (Considering) Multiple perspectives for situational understanding,
